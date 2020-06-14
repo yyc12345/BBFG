@@ -25,11 +25,16 @@ namespace BBFG {
 
         static void Main(string[] args) {
 
+            Console.Write("Font name (Suggest Squarish Sans CT): ");
+            var fontFamily = Console.ReadLine();
+            Console.Write("Font size (Suggest 26): ");
+            var fontSize = int.Parse(Console.ReadLine());
+
             var fs = new StreamWriter("font.csv", false, Encoding.Default);
 
             int HW_COUNT = 16;
             int HW_IMG = 512;
-            int FONTSIZE = 26;
+            //int FONTSIZE = 26;
             float HW_CELL = (float)HW_IMG / (float)HW_COUNT;
             float upixel = 1.0f / HW_IMG;
 
@@ -42,7 +47,7 @@ namespace BBFG {
             //GetCharABCWidthsA(hdc, 0, 255, abcList);
             //g.ReleaseHdc(hdc);
 
-            var ft = new Font("Squarish Sans CT", FONTSIZE, FontStyle.Regular, GraphicsUnit.Pixel);
+            var ft = new Font(fontFamily, fontSize, FontStyle.Regular, GraphicsUnit.Pixel);
             var sb = new SolidBrush(Color.White);
             var sf = StringFormat.GenericTypographic;
             sf.FormatFlags |= StringFormatFlags.MeasureTrailingSpaces;
